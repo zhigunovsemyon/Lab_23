@@ -1,4 +1,4 @@
-#include <stdint.h>
+#include "Stack.h"
 #include <stdio.h>
 
 uint8_t CharToNum(char c)
@@ -8,16 +8,23 @@ uint8_t CharToNum(char c)
 
 int main(void)
 {
+	Stack NumStack = InitStack();
 	char sss;
-	int count = 0;
+	// int count = 0;
 	while('\n' != (sss = getchar()))
 	{
 		if(sss >= '0' && sss <='9')
 		{
-			count++;
-			printf("%hhd" ,CharToNum(sss));
+			// count++;
+			PushInStack(&NumStack, CharToNum(sss));
+			// printf("%hhd" ,);
 		}
 	}
-	printf("\ncount = %d\n", count);
-	return 0;
+	// printf("\ncount = %d\n", count);
+	if(PrintStack(&NumStack, "%hhu "))
+	{
+		perror("err");
+		return ERR_MALLOC;
+	}
+	return ERR_NO;
 }
