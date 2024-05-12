@@ -1,4 +1,10 @@
+#include <stdint.h>
 #include <stdio.h>
+
+uint8_t CharToNum(char c)
+{
+	return c - '0';
+}
 
 int main(void)
 {
@@ -9,7 +15,7 @@ int main(void)
 		if(sss >= '0' && sss <='9')
 		{
 			count++;
-			putchar(sss);
+			printf("%hhd" ,CharToNum(sss));
 		}
 	}
 	printf("\ncount = %d\n", count);
