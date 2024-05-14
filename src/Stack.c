@@ -63,24 +63,6 @@ uint8_t PullFromStack(Stack *S, uint8_t *num)
 	return ERR_NO;
 }
 
-uint8_t PrintStack(Stack *S, const char *fmt)
-{	
-	uint8_t el;//элемент, в который будет записыватся число
-	
-	//Цикл перебора, пока в стеке есть число
-	while (S->num)
-	{	//Осуществляется исключающее чтение
-		if(PullFromStack(S, &el))
-			return ERR_MALLOC;
-
-		//Вывод каждого элемента в соответствии с форматом
-		printf(fmt,el);
-	}
-	//Перенос строки в конце
-	putchar('\n');
-	return ERR_NO;
-}
-
 void SilentfreeStack(Stack *S)
 {	//Освобождение памяти, запись признаков
 	free(S->stack);

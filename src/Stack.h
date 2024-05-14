@@ -31,9 +31,6 @@ uint8_t StackSize(Stack *S);
 //Извлечение вершины стека S в num
 uint8_t PullFromStack(Stack *S, uint8_t *num);
 
-//Уничтожающий вывод стека S форматом fmt
-uint8_t PrintStack(Stack *S, const char *fmt);
-
 //Создание пустого стека
 Stack InitStack(void);
 
