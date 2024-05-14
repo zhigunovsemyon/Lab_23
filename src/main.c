@@ -56,7 +56,6 @@ int main(void)
 
 		case 's':
 		case 'S':
-			MultOrSum = 0;
 			//Подсчёт суммы членов стека, его уничтожение, проверка malloc
 			if (SumOfStack(&NumStack, &MultOrSum))
 				return ERR_MALLOC;
@@ -65,7 +64,6 @@ int main(void)
 
 		case 'm':
 		case 'M':
-			MultOrSum = 1;
 			//Подсчёт произведения членов стека, его уничтожение, проверка malloc
 			if (MultOfStack(&NumStack, &MultOrSum))
 				return ERR_MALLOC;
@@ -81,10 +79,11 @@ int main(void)
 // Посчитать произведение членов стека S в mult, очистив его
 uint8_t MultOfStack(Stack *S, uint16_t *mult)
 {
+	*mult = 1;
 	uint8_t el; // элемент, в который будет записыватся число
 
 	// Цикл перебора, пока в стеке есть число
-	while (S->num)
+	while (StackSize(S))
 	{ // Осуществляется исключающее чтение
 		if (PullFromStack(S, &el))
 			return ERR_MALLOC;
@@ -97,10 +96,11 @@ uint8_t MultOfStack(Stack *S, uint16_t *mult)
 // Посчитать сумму стека S в sum, очистив его
 uint8_t SumOfStack(Stack *S, uint16_t *sum)
 {
+	*sum = 0;
 	uint8_t el; // элемент, в который будет записыватся число
 
 	// Цикл перебора, пока в стеке есть число
-	while (S->num)
+	while (StackSize(S))
 	{ // Осуществляется исключающее чтение
 		if (PullFromStack(S, &el))
 			return ERR_MALLOC;
@@ -128,7 +128,7 @@ uint8_t PrintStack(Stack *S, const char *fmt)
 	uint8_t el; // элемент, в который будет записыватся число
 
 	// Цикл перебора, пока в стеке есть число
-	while (S->num)
+	while (StackSize(S))
 	{ // Осуществляется исключающее чтение
 		if (PullFromStack(S, &el))
 			return ERR_MALLOC;
