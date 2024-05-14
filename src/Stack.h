@@ -14,7 +14,6 @@ enum Errors
 typedef struct
 {
 	uint8_t num;	//Число элементов стека 
-	uint8_t head;	//Верхний элемент стека
 	uint8_t *stack;	//Непосредственно память стека
 }
 Stack;
