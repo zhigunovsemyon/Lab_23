@@ -25,8 +25,8 @@ uint8_t PushInStack(Stack *S, uint8_t num);
 //Тихое уничтожение стека S
 void SilentFreeStack(Stack *S);
 
-//Возврат размера стека
-uint8_t StackSize(Stack *S);
+//Возврат того 0, если стек пустой
+uint8_t IsStackEmpty(Stack *S);
 
 //Извлечение вершины стека S в num
 uint8_t PullFromStack(Stack *S, uint8_t *num);

@@ -31,7 +31,7 @@ int main(void)
 				return ERR_MALLOC; // Возврат кода ошибки, если malloc не выделил память
 
 	// Если в стек не были записаны элементы, будет выведено сообщение
-	if (!StackSize(&NumStack))
+	if (!IsStackEmpty(&NumStack))
 	{
 		puts("Стек пустой!");
 		// Завершение работы
@@ -83,7 +83,7 @@ uint8_t MultOfStack(Stack *S, uint16_t *mult)
 	uint8_t el; // элемент, в который будет записыватся число
 
 	// Цикл перебора, пока в стеке есть число
-	while (StackSize(S))
+	while (IsStackEmpty(S))
 	{ // Осуществляется исключающее чтение
 		if (PullFromStack(S, &el))
 			return ERR_MALLOC;
@@ -100,7 +100,7 @@ uint8_t SumOfStack(Stack *S, uint16_t *sum)
 	uint8_t el; // элемент, в который будет записыватся число
 
 	// Цикл перебора, пока в стеке есть число
-	while (StackSize(S))
+	while (IsStackEmpty(S))
 	{ // Осуществляется исключающее чтение
 		if (PullFromStack(S, &el))
 			return ERR_MALLOC;
@@ -128,7 +128,7 @@ uint8_t PrintStack(Stack *S, const char *fmt)
 	uint8_t el; // элемент, в который будет записыватся число
 
 	// Цикл перебора, пока в стеке есть число
-	while (StackSize(S))
+	while (IsStackEmpty(S))
 	{ // Осуществляется исключающее чтение
 		if (PullFromStack(S, &el))
 			return ERR_MALLOC;

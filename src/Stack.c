@@ -1,6 +1,6 @@
 #include "Stack.h"
 
-uint8_t StackSize(Stack *S)
+uint8_t IsStackEmpty(Stack *S)
 {
 	return S->num;
 }
